@@ -1,0 +1,29 @@
+var LOCAL_BASE = "https://6rlol.pages.dev/data/";
+var M_RESOUSE_SERVER_URL = LOCAL_BASE;   
+var M_WC_SERVER_URL      = LOCAL_BASE;   
+var M_IMG_SERVER_URL     = LOCAL_BASE;   
+var M_C_SERVER_URL       = LOCAL_BASE;   
+function Ajax_Url() {
+    this.GET_MAP_BIN             = LOCAL_BASE + "api/oapi_map.php";
+    this.GAME_GET_GAME_INFO      = LOCAL_BASE + "api/game_info.php";
+    this.GAME_UPDATE_LOG         = LOCAL_BASE + "api/game_update_log.php";
+    this.GAME_LINK_OVER          = LOCAL_BASE + "api/game_link_over.php";
+    this.GAME_COMMENT            = LOCAL_BASE + "api/game_comment.php";
+    this.GAME_FINE_COMMEN        = LOCAL_BASE + "api/game_fine_comment.php";
+    this.GAME_TASK_CONTENT       = LOCAL_BASE + "api/game_task.php";
+    this.GAME_AS_CONTENT         = LOCAL_BASE + "api/game_achievement.php";
+    this.GAME_SHARE_HREF         = "";
+    this.FLOWER_GAME_ALL_FLOWER  = LOCAL_BASE + "api/flower_all.php";
+    this.FLOWER_SEND_FLOWER      = LOCAL_BASE + "api/flower_send.php";
+    this.FLOWER_CHB_BUY_FLOWER   = LOCAL_BASE + "api/flower_buy.php";
+    this.FLOWER_SHARE_ALL_INFO   = LOCAL_BASE + "api/flower_share_all.php";
+    this.FLOWER_SHARE_NOW_FLOWER = LOCAL_BASE + "api/flower_share_now.php";
+    this.FLOWER_SHARE_PLUS_FLOWER= LOCAL_BASE + "api/flower_share_plus.php";
+    this.USER_CJH_INFO           = LOCAL_BASE + "api/user_cjh.php";
+    this.Game_AD                 = LOCAL_BASE + "api/game_ad.php";
+    this.GAME_SYSTEM_TIME        = LOCAL_BASE + "api/system_time.php";
+    this.UP_GAME_GET_KEY         = LOCAL_BASE + "api/uptime_getkey.php";
+    this.UP_GAME_RUN_TIME        = LOCAL_BASE + "api/uptime_runtime.php";
+    this.UP_GAME_UV              = LOCAL_BASE + "api/uptime_uv.php";
+    this.UP_GAME_PV              = LOCAL_BASE + "api/uptime_pv.php";
+}
