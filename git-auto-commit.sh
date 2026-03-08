@@ -34,8 +34,7 @@ else
 fi
 
 # 4. 获取分支名
-BRANCH=$(git branch --show-current)
-[ -z "$BRANCH" ] && BRANCH="main"
+BRANCH="main"
 
 # 5. 强力推送
 echo "--- 📦 正在上传 (强制覆盖模式) ---"
