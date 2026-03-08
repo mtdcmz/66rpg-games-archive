@@ -1,0 +1,1064 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" id="scalable">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PLAY MORE ON 6RLOL.PAGES.DEV</title>
+    <meta name="description" content="">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="website/orange/img/common/ios_webapp_57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="website/orange/img/common/ios_webapp_120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="196x196" href="website/orange/img/common/ios_webapp_196.png">
+    <link rel="apple-touch-startup-image" href="website/orange/img/common/ios_webapp_640_1096.png" media="(device-height:568px)">
+    <link rel="apple-touch-startup-image" href="website/orange/img/common/ios_webapp_640_920.png" media="(device-height:480px)">
+    <link rel="apple-touch-icon-precomposed" href="orange/upload/201501/53287_b1d1c1c7a2c20927bd5f67e78b1a513a.png">
+    <link rel="Bookmark" type="image/x-icon" href="website/common/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="website/common/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="website/common/img/favicon.ico">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <script src="website/common/js/base64.js?v=20170609002" charset="utf-8"></script>
+    <script src="website/hfplayer/js/vendor/modernizr-2.6.2.min.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/vendor/jquery-1.10.2.min.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/vendor/jquery.qrcode.min.js?v=20170609002"></script>
+    <script>
+    var LOCAL_BASE = "https://6rlol.pages.dev/data/";
+    (function(){
+        function _qp(k){ return new URLSearchParams(window.location.search).get(k); }
+        var _guid = _qp("guid");
+        var _ver  = _qp("ver");
+        if(!_guid || !_ver){
+            document.addEventListener("DOMContentLoaded", function(){
+                document.body.style.cssText = "margin:0;background:#000;display:flex;align-items:center;justify-content:center;height:100vh;";
+                document.body.innerHTML = '<div style="color:#ff6600;font-family:monospace;font-size:18px;text-align:center;">'
+                    + '<div style="font-size:48px;margin-bottom:16px;">(X_X)</div>'
+                    + '<div>加载出错啦！</b></div>'
+                    + '<div style="margin-top:12px;color:#888;font-size:13px;">好像少了点什么？</div>'
+                    + '</div>';
+            });
+            throw new Error("Missing required URL params: guid, ver");
+        }
+        window._LAUNCH_GUID = _guid;
+        window._LAUNCH_VER  = _ver;
+        window._LAUNCH_GAME_BIN = "web/" + _guid + "/" + _ver + "/Game_mini.bin";
+    })();
+    var M_RESOUSE_SERVER_URL = LOCAL_BASE;
+    var M_WC_SERVER_URL      = LOCAL_BASE;
+    var M_IMG_SERVER_URL     = LOCAL_BASE;
+    var M_C_SERVER_URL       = LOCAL_BASE;
+    function Ajax_Url() {
+        this.GET_MAP_BIN             = LOCAL_BASE + "api/oapi_map.php";
+        this.GAME_GET_GAME_INFO      = LOCAL_BASE + "api/game_info.php";
+        this.GAME_UPDATE_LOG         = LOCAL_BASE + "api/game_update_log.php";
+        this.GAME_LINK_OVER          = LOCAL_BASE + "api/game_link_over.php";
+        this.GAME_COMMENT            = LOCAL_BASE + "api/game_comment.php";
+        this.GAME_FINE_COMMEN        = LOCAL_BASE + "api/game_fine_comment.php";
+        this.GAME_TASK_CONTENT       = LOCAL_BASE + "api/game_task.php";
+        this.GAME_AS_CONTENT         = LOCAL_BASE + "api/game_achievement.php";
+        this.GAME_SHARE_HREF         = "";
+        this.FLOWER_GAME_ALL_FLOWER  = LOCAL_BASE + "api/flower_all.php";
+        this.FLOWER_SEND_FLOWER      = LOCAL_BASE + "api/flower_send.php";
+        this.FLOWER_CHB_BUY_FLOWER   = LOCAL_BASE + "api/flower_buy.php";
+        this.FLOWER_SHARE_ALL_INFO   = LOCAL_BASE + "api/flower_share_all.php";
+        this.FLOWER_SHARE_NOW_FLOWER = LOCAL_BASE + "api/flower_share_now.php";
+        this.FLOWER_SHARE_PLUS_FLOWER= LOCAL_BASE + "api/flower_share_plus.php";
+        this.USER_CJH_INFO           = LOCAL_BASE + "api/user_cjh.php";
+        this.Game_AD                 = LOCAL_BASE + "api/game_ad.php";
+        this.GAME_SYSTEM_TIME        = LOCAL_BASE + "api/system_time.php";
+        this.UP_GAME_GET_KEY         = LOCAL_BASE + "api/uptime_getkey.php";
+        this.UP_GAME_RUN_TIME        = LOCAL_BASE + "api/uptime_runtime.php";
+        this.UP_GAME_UV              = LOCAL_BASE + "api/uptime_uv.php";
+        this.UP_GAME_PV              = LOCAL_BASE + "api/uptime_pv.php";
+    }
+    </script>
+    <script>
+        var webUrl = '';
+        var passUrl= '';
+        var cgUrl= '';
+        var bbsUrl= '';
+        var picUrl= '';
+        var cdnUrl= '';
+        var wsUrl= ''; 
+        var loginSuc;
+        var loginOut;
+        var loginUrl="";
+        var gameFlower = 0;
+        var gamefv_times = 0;
+        var flower_unlock = 0;
+        if(flower_unlock == 0){
+            flower_unlock = 0;
+        }
+        var platMark = '';
+    </script>
+    <script src="website/mobile/js/ssologin.js?v=20170609002"></script>
+    <script src="website/mobile/js/publicUses.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/CGMenuServer.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/plugins.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/OGMain.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/WebTool.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/shareService.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/TGameDebug.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/CloudStatus.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DCanvas.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DGameHeader.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DLogic.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DMusic.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DGameReplay.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DThumbnail.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/ErrorCode.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/FrameInfo.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/Data/DSystemDefine.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/ErrorManager.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/ICloud.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/IFrameSave.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/OperationCloud.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/Cloud/OperationFrame.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OSpriteBox.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/BitmapFont.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OSprite.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OInputBox.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OInput.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/ODrawBase.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OViewport.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OButton.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OColor.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/ORead.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OAudio.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OVideo.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OScrollbar.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OListView.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OListViewItem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OCheck.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/OMpngBox.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/root/InteractivePNG.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SLoad.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/STitle.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SMenu.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCGMenu/SCGMenu3.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCGMenu/SCGMoreDes.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCGMenu/SCGSendFlower.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCGMenu/drawItem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCGMenu/SCGComment1.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SReplay.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SSavefile.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SFloatButton.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SSystem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCGUpdateLog.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SBGM.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCG.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SCUI.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SLoading.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/DataStream.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SVLoad.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/encoding.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/ServerAjax.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/md5.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/md5_1.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/nativeShare.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/shareGetFlower.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/GetService.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/TempVar.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DMain.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/inter/IMain.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/inter/MakerUtils.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CMain.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DHeader.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DSystem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DFileName.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DMusicItem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DViewport.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DButton.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DBitmapFontData.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DButtonIndex.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DFloatButtonData.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DGameMenu.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DCG.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DBGM.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DSaveData.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DMessageBox.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DReplay.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DSetting.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DCustomUIData.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DTitle.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DStory.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DEvent.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DGameSystem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DGameVariables.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DGameString.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DSaveFile.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/data/DMpngImage.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CTextChoice.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CButtonChoice.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CWeather.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CRotate.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CMessage.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CLifeLineItem.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CLifeLine.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/canvas/CAdvert.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/inter/IEventList.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/inter/IEventMaker.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/SGame.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/scene/LoadAssets.js?v=20170609002"></script>
+    <script src="website/hfplayer/js/lib/uptime/upServerTime.js?v=20170609002"></script>
+    <script>
+        if (typeof ssoLogin === 'undefined' || !ssoLogin) {
+            window.ssoLogin = { setConf: function(){} };
+        } else {
+            try { ssoLogin.setConf({ whetherMinLogin: false, isAjax: false, openNotic: false }); } catch(e){}
+        }
+        if (typeof publicUses === 'undefined' || !publicUses) {
+            window.publicUses = {};
+        }
+        publicUses.getUserInfo = function() {
+            return { uid: 0, uname: '本地玩家', vip_level: 0, screen_game_ad: 0 };
+        };
+        publicUses.setConfig   = function(){};
+        publicUses.keepState   = 1;
+        publicUses.argeeState  = 1;
+        publicUses.concernState= 1;
+        publicUses.ArgeeNum    = 0;
+        publicUses.p_ComArgee  = function(a,cb){ if(cb) cb({}); };
+        publicUses.p_ComKeep   = function(a,cb){ if(cb) cb({}); };
+        publicUses.p_ComConcern= function(a,cb){ if(cb) cb({}); };
+        publicUses.p_GetArgeeNum=function(a,cb){ if(cb) cb({data:0}); };
+        var user = null;
+        $("#data").data("user", user);
+    </script>
+    <style type="text/css">
+        html{ font-size: 62.5%;}
+        html,body{
+            height:100%;
+            overflow: hidden;
+            position: relative;
+        }
+        ul,li,p,h1,h2,h3,h4,h5{
+            list-style: none;
+            margin: 0;
+            padding:0 ;
+        }
+        .clearfix { *zoom: 1; }
+        .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+        @media only screen and (-webkit-min-device-pixel-ratio:3) { html{ font-size: 80%; } }
+        @media screen and (min-device-width:375px){
+            .pop_up_txt_h h4 { line-height: 2rem; }
+            .pop_up_txt_b { margin-top: 2rem; }
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio:3) {
+            .pop_up_txt_h h4 { line-height: normal; }
+            .pop_up_txt_b { margin-top: 0.4rem; }
+        }
+        .share-modal{ display: none; height: 100%; width: 100%; position: fixed; left: 0; top: 0; background-color: rgba(0,0,0,0.4); z-index: 10; font-size: 1.4rem; }
+        .share-modal-box { position: absolute; top: 0%; left: 10%; width: 80%; max-width: 60rem; background-color:#FFF; border-radius:8px; box-sizing: border-box; padding: 2% 0 0 0; box-shadow: 0 0 6px 0 rgba(0,0,0,0.4); }
+        .share-modal-box .icon { padding:0 1px; }
+        .share-modal-box > .box1{ border-bottom: 1px solid #E9E9E9; padding: 0 4% 1rem; line-height: 2rem;}
+        .share-modal-box > .box1 > div { float:left;  }
+        .share-modal-box > .box2{padding: 0 2% 0 4%; float: left; width: 54%; }
+        .share-modal-box > .box2 > div{ background-color:#F5F5F5; }
+        .share-modal-box > .box2 > .title { font-weight:bold; text-align:center; margin-top:1rem; padding: 1rem 0;}
+        .share-modal-box > .box2 > .tr{ margin-bottom: 0.4rem;  }
+        .share-modal-box > .box2 > .tr > .active { color: #FF6600; }
+        .share-modal-box > .box2 > .tr > div{float:left; text-align: center;padding: .3rem 0;}
+        .share-modal-box > .box2 > .tr > div:first-child { width: 24%; background-color:#EEEEEE; position: relative; height:100%; }
+        .share-modal-box > .box2 > .tr > div:nth-child(2) {  width: 38%; }
+        .share-modal-box > .box2 > .tr > div:nth-child(3) {  width: 38%; }
+        .share-modal-box > .box3{padding: 0 4% 0 2%; margin-top:1rem; float: right; width: 34%; }
+        .share-modal-box > .box3 > ul{margin-bottom:.5rem;}
+        .share-modal-box > .box3 li{width:50%;height:5rem;float:left; text-align:center; margin-top:1rem;}
+        .share-modal-box > .box3 li > img{ height: 2.5rem; margin-bottom:2px; }
+        .share-modal-box > .box3 li > div{ height: 1.5rem; }
+        .share-modal-itemlist{list-style: none;margin: 0;padding: 0;}
+        .icon{
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+            border: 0;
+        }
+        .share-modal-colse { position: absolute; right: -0.6rem; top: -0.6rem; height: 2rem; width: 2rem; border: 1px solid #FFF; border-radius: 1rem; box-shadow: 0 0 4px 0 rgba(0,0,0,0.6); background: url(website/orange/img/common/share/close.png) no-repeat center center #FFF; background-size: 100%; }
+        @media screen and (max-device-width:320px){
+            .share-modal-box > .box2 > .tr > div{float:left; text-align: center;padding: 0.3rem 0;}
+        }
+        @media only screen and (max-device-width:568px){
+            .share-modal-box { font-size: 1.2rem; }
+        }
+        @media only screen and (min-device-width:768px){
+            .share-modal-box > .box3 li{ height:5rem; }
+            .share-modal-box > .box3 li > img{ height: 2.5rem; margin-bottom:2px; }
+        }
+        .pop_up_box{
+            transform-origin: left 0% 0px;
+            transform: none;
+            top: 0px;
+            display: block;
+            position: absolute;
+            background: rgba(0,0,0,0.3);
+            display: none;
+        }
+        .outer{
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        .inner{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .send_flowers,.recharge{
+            width: 61%;
+            background:#fff;
+            position: relative;
+            margin-left: 19.5%;
+        }
+        .send_flowers > .menu_close,.recharge > .menu_close , .send_flowers_sp > .menu_close , .recharge_sp > .menu_close{
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            top: -1rem;
+            right: -1rem;
+        }
+        .send_flowers > h3,.recharge > h3 , .send_flowers_sp > h3 ,.recharge_sp > h3{
+            font-size: 1.8rem;
+            color: #8e8e8e;
+            background: #222;
+            margin:0 0 2% 0;
+            padding: 3% 0;
+            text-align: center;
+            font-family: "微软雅黑";
+            font-weight: normal;
+        }
+        .send_flowers > p , .recharge > h4 , .send_flowers_sp > h4 , .recharge_sp > h4{
+            padding: 1% 4%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+        .send_flowers > .explain_h , .recharge > .explain_h , .send_flowers_sp > .explain_h , .recharge_sp > .explain_h{
+            font-size:1.5rem;
+            color:#434343;
+            font-weight: normal;
+        }
+        .send_flowers > .explain_c , .send_flowers_sp > .explain_c{
+            font-size:1.3rem;
+            color:#878787;
+        }
+        .send_flowers > p , .send_flowers_sp > p{
+            padding: 1% 4%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+        .send_flowers > .import_num , .send_flowers_sp > .import_num {
+            padding: 2% 4% 1%;
+            font-family: "微软雅黑";
+            font-size:1.5rem;
+            color:#434343;
+            height: 10%;
+        }
+        .send_flowers > .import_num > input , .send_flowers_sp > .import_num > input{
+            height: 2.3rem;
+            width: 26%;
+            margin: 0 1%;
+            border-radius: .2rem;
+            border:1px solid #ccc;
+        }
+        .send_flowers > button , .send_flowers_sp > button{
+            height: 3.5rem;
+            width: 45%;
+            margin:.7rem 0 1.3rem 4%;
+            border-radius: .3rem;
+            border:0;
+            font-size: 1.5rem;
+            color: #ffffff;
+            font-family: "微软雅黑";
+            background:#ff6600
+        }
+        .send_flowers > button:last-child , .send_flowers_sp > #buyFlower{
+            background:#ffac28
+        }
+        .send_flowers > button > img , .send_flowers_sp > button > img{
+            width: 1.55rem;
+            height: 1.55rem;
+            position: relative;
+            margin-right: .3rem;
+            vertical-align: middle;
+        }
+        .send_flowers_sp , .recharge_sp {
+            width: 61%;
+            margin-left: 19.5%;
+            background: #fff;
+            position: relative;
+        }
+        .send_flowers_sp > button{
+            float: left;
+        }
+        .send_flowers_sp > #buyFlower{
+            float: right;
+            margin: .7rem 4% 1.3rem 0;
+        }
+        .send_flowers_sp > .clear{
+            clear: both;
+        }
+        .recharge , .recharge_sp{
+            padding-bottom: 4%;
+        }
+        .recharge_box .recharge > .import_box , .recharge_spbox .recharge > .import_box{
+            padding: 0 4%;
+            margin-top: 1%;
+        }
+        .recharge_box .recharge > .explain_h , .recharge_spbox .recharge_sp > .explain_h{
+            font-size: 1.5rem;
+        }
+        .recharge_box .recharge > .import_box > form , .recharge_spbox .recharge > .import_box > form{
+            display: inline-block;
+            width: 72%;
+        }
+        .recharge_box .recharge > .import_box > form > input , .recharge_spbox .recharge > .import_box > form > input{
+            width: 53%;
+            height: 2.8rem;
+            border:1px solid #ccc;
+            border-radius:.2rem;
+            margin-top: 1%;
+            padding-left:2%;
+            color: #434343;
+            box-sizing: border-box;
+        }
+        .recharge_box .recharge > .import_box > form > button , .recharge_spbox .recharge > .import_box > form > button{
+            width: 40%;
+            height: 2.8rem;
+            background: #ff6600;
+            color: #fff;
+            font-size: 1.4rem;
+            font-family: "微软雅黑";
+            border:0;
+            border-radius: .2rem;
+            vertical-align: bottom;
+        }
+        .recharge_box .recharge > .import_box > a , .recharge_spbox .recharge > .import_box > a{
+            color: #ff6600;
+            font-size: 1.2rem;
+            font-family: "微软雅黑";
+            line-height: 3.4rem;
+            float: right;
+            margin-right: 2%;
+            text-decoration: none;
+        }
+        .recharge_box .recharge > .import_box > form > h4 , .recharge_spbox .recharge > .import_box > form > h4{
+            font-size: 1.5rem;
+        }
+        .recharge_box .recharge > .recharge_explain , .recharge_spbox .recharge > .recharge_explain{
+            padding:0 4%;
+            margin: 0;
+            font-family: "微软雅黑";
+            font-size: 1.3rem;
+            color: #434343;
+        }
+        .recharge_spbox{
+            width: 100%;
+            height: 100%;
+        }
+        .recharge_spbox .recharge {
+            width: 86%;
+            margin-left: 7%;
+        }
+        .tools_popup{
+            width: 100%;
+            height: 100%;
+            display: none;
+            background-size: 100% 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .tools_popup > a{
+            width: 23%;
+            height: 14%;
+            background: #ffac28;
+        }
+        .modal {
+            vertical-align: middle;
+        }
+        @media screen and (max-width: 360px) {
+        }
+        .share-modal-sp > .share-modal-box{
+            z-index: 9;
+        }
+        .share-modal-sp > .share-modal-box > .box1 {
+            font-size: 1.3rem;
+            padding: 0 7% .8rem;
+            font-family: '微软雅黑';
+        }
+        .share-modal-sp > .share-modal-box > .box1 > #shareCon > div > span{
+            margin-right: .3rem;
+        }
+        .share-modal-sp > .share-modal-box > .box1 > #shareCon > div > .icon{
+            margin: -.4rem .4rem 0 .3rem;
+        }
+        .share-modal-sp > .share-modal-box > .box2 {
+            padding: 0;
+            width: 100%;
+        }
+        #share-modal{
+            display: none;
+            z-index: 11;
+        }
+        .share-mask{
+            z-index: 1;
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+        .box2_1{
+            padding: 0;
+            width: 64%;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .title {
+            margin: 0;
+            padding: 1rem 0;
+            background: #fff;
+            font-size: 1.4rem;
+            color: rgb(255,102,0);
+            border-bottom: 1px solid #ddd;
+        }
+        .share-modal-sp > .share-modal-box > .box1{
+            border-bottom: 1px solid #ddd;
+        }
+        .share-modal-sp > .share-modal-box > .box1 > #shareCon{
+            width: 70%;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr {
+            margin-bottom: 0;
+            padding: 0 8% ;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > .sharenum > i{
+            display: inline-block;
+            width: 10px;
+            height: 1px;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div:first-child { width: 6%; color: rgb(255,102,0); background: transparent; visibility: hidden;}
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div:nth-child(2) {  width: 22%;}
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div:nth-child(3) {  width: 36%; }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div:last-child {  width: 36%; }
+        .share-modal-sp > .share-modal-box > .box2 > .tr_act{
+            background: #fff7d7;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > .sharenum_act{
+            color: rgb(255,102,0);
+        }
+        .share-modal-sp > .share-modal-box > .box3 {
+            padding: 0 9.5%;
+            width: 81%;
+            margin: 0;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div.arrow_icon_act{
+            visibility: visible;
+        }
+        .share-modal-sp > .share-modal-box > .box3 > ul > li{
+            width: 25%;
+            margin-top: 1.25rem;
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div {
+            line-height: 2.1rem;
+            color: rgb(67,67,67);
+            font-size: 1.4rem;
+            font-size: 1.3rem;
+            font-family: '微软雅黑';
+        }
+        .share-modal-sp > .share-modal-box > .box2 > .tr > div > span{
+            color: rgb(255,102,0);
+            margin-right: .3rem;
+        }
+        .share-modal-sp > .share-modal-box .icon {
+            width: 1.3rem;
+            margin:-.4rem 3% 0 0;
+        }
+        .share-modal-box > .box3 li > img {
+            margin-bottom: .3rem;
+        }
+    </style>
+</head>
+<body onload="setTimeout(function(){window.scrollTo(0,0);},1);setInterval(resizeGame,1000);setInterval(showNoMusic,1000);" bgcolor="#000000" style="margin: 0px;-moz-user-select: none;overflow-x: hidden;" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" oncopy="return false" oncut="return false">
+<div id="data"></div>
+<div id="tap_to_start" style="
+    position:fixed;z-index:99999;top:0;left:0;width:100%;height:100%;
+    background:#000;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;cursor:pointer;
+    -webkit-user-select:none;user-select:none;">
+  <div style="color:#ff6600;font-size:28px;font-weight:bold;letter-spacing:4px;margin-bottom:18px;">
+    点击屏幕开始游戏
+  </div>
+  <div style="color:#888;font-size:13px;">Tap anywhere to start</div>
+</div>
+<script>
+(function(){
+    var overlay = document.getElementById("tap_to_start");
+    var _started = false;
+    function doStart(){
+        if(_started) return;
+        _started = true;
+        overlay.style.display = "none";
+        try {
+            var ctx = window.AudioContext || window.webkitAudioContext;
+            if(ctx){ var ac = new ctx(); ac.resume && ac.resume(); }
+        } catch(e){}
+        start(window._LAUNCH_GUID, window._LAUNCH_VER,'','','32', window._LAUNCH_GAME_BIN,'1');
+    }
+    overlay.addEventListener("click",     doStart, {once:true});
+    overlay.addEventListener("touchend",  doStart, {once:true, passive:true});
+})();
+</script>
+<style type="text/css">
+    .input_box{
+        width: 100%;
+        background-color: #E3E3E3;
+        font-size: 1.3rem;
+        font-weight: bold;
+        position: absolute;
+        bottom: 5px;
+    }
+    .input_box tr{
+        width: 100%;
+        border: 1px solid #E3E3E3;
+    }
+    .input_box tr td{
+        width: 33%;
+        border: 1px solid #E3E3E3;
+        background-color: #ffffff;
+        height: 35px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .input_box tr td:hover{
+        background-color: #d2d2d2;
+    }
+    .input_back{
+        width: 100%;
+        background-color: white;
+        opacity: 0.8;
+        bottom: 0;
+        margin-left: -50%;
+        position: absolute;
+        z-index: -1;
+        background-color: white;
+        opacity: 0.8;
+    }
+    .videos{
+        right:0;
+        bottom: 0;
+        position:absolute;
+        background-color:grey;
+        -ms-transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -o-transform-origin:0 0;
+        width:1px;
+        height:1px;
+        z-index:-1;
+    }
+    .share-modal-box > .box2_1{ padding:5px 3% 15px; font-size: 12px; }
+    .share-modal-box > .box2_1 > .box2_1_tit{line-height: 2rem; width: 26%; float: left; text-align: right;}
+    .share-modal-box > .box2_1 > .box2_1_r{ float: left; width: 70%; }
+    .share-modal-box > .box2_1 > .box2_1_r p{ line-height: 2rem; padding-left: 12px;}
+    .share-modal-box > .box2_1 > .box2_1_r p em{ color: #ff6600; font-style: normal; white-space: nowrap;}
+    .share-modal-box > .box2_1_center { padding:10px 4%;}
+    .share-modal-box > .box2_1_center .box2_1_r{ width: 100%; }
+    .share-modal-box > .box2_1_center > .box2_1_r p{ padding: 0; text-align: center;}
+    #videomask{
+        right:0;
+        bottom: 0;
+        position:absolute;
+        -ms-transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -o-transform-origin:0 0;
+    }
+    #videomaskBG{
+        right:0;
+        bottom: 0;
+        position:absolute;
+        -ms-transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -o-transform-origin:0 0;
+    }
+    #videoText{
+        right:0;
+        bottom: 0;
+        position:absolute;
+        -ms-transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -o-transform-origin:0 0;
+    }
+    @keyframes loadingR
+    {
+        0% {transform: rotate(0deg)}
+        50% {transform: rotate(180deg)}
+        100% {transform: rotate(360deg)}
+    }
+    @-moz-keyframes loadingR 
+    {
+        0% {transform: rotate(0deg)}
+        50% {transform: rotate(180deg)}
+        100% {transform: rotate(360deg)}
+    }
+    @-webkit-keyframes loadingR 
+    {
+        0% {transform: rotate(0deg)}
+        50% {transform: rotate(180deg)}
+        100% {transform: rotate(360deg)}
+    }
+    @-o-keyframes loadingR 
+    {
+        0% {transform: rotate(0deg)}
+        50% {transform: rotate(180deg)}
+        100% {transform: rotate(360deg)}
+    }
+</style>
+<script>
+    $(function(){
+        $('.share-modal-colse').click(function(){
+            $(".share-modal-sp").hide();
+            $(".share-mask").hide();
+        });
+        $(".menu_close").click(function(){
+            $(this).parents('.pop_up_box').hide();
+            $("#startLogin").hide();
+        });
+        $(".rpg_menu ,#back_tools").click(function(event){
+            event.stopPropagation();
+        });
+        $("#back_tools").click(function(){
+            $(".tools_popup").hide();
+        });
+        $("#buyFlower").click(function () {
+            $(".send_flowers_box").hide();
+            $(".recharge_box").show();
+        });
+    });
+</script>
+<button class="ssologin" style="display:none"></button>
+<button class="logout" style="display:none"></button>
+<div class="share-mask"></div>
+<div class="share-modal share-modal-sp" id="share-modal">
+    <div class="share-modal-box">
+        <div class="share-modal-colse"></div>
+        <div class="box1 clearfix">
+            <div>本次分享：</div>
+            <div id="shareCon">
+                <div>为本作品送<img class="icon" src="website/orange/img/common/f3.png"/><span class="btnBFlower">0</span>朵花</div>
+                <div>您获得<img class="icon" src="orange/common/list/icon_color_leaf.png"/><span class="btnBNum">0</span>积分</div>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="title">每日奖励</div>
+            <div class="tr clearfix">
+                <div class="arrow_icon">&rarr;</div>
+                <div class="sharenum">首 <i></i>次 </div>
+            </div>
+            <div class="tr clearfix">
+                <div class="arrow_icon">&rarr;</div>
+                <div class="sharenum">再 <i></i>次 </div>
+            </div>
+            <div class="tr clearfix">
+                <div class="arrow_icon">&rarr;</div>
+                <div class="sharenum">第三次</div>
+            </div>
+        </div>
+        <div class="box3">
+            <ul class="clearfix share-modal-itemlist">
+                <li data-share="weibo">
+                    <img src="website/orange/img/common/share/weibo.png">
+                    <div>微博</div>
+                </li>
+                <li data-share="qzone">
+                    <img src="website/orange/img/common/share/qzone.png">
+                    <div>QQ空间</div>
+                </li>
+                <li data-share="qq">
+                    <img src="website/orange/img/common/share/QQ.png">
+                    <div>QQ</div>
+                </li>
+                <li data-share="wechat">
+                    <img src="website/orange/img/common/share/wechat.png">
+                    <div>微信</div>
+                </li>
+            </ul>
+        </div>
+        <div class="box2_1 clearfix" style="font-family: '微软雅黑'">
+            <div class="box2_1_tit">额外奖励</div>
+            <div class="box2_1_r"><p>分享内容每次被用户浏览后都会获得<em>50积分</em>奖励</p></div>
+        </div>
+    </div>
+</div>
+<div id="div_button" style="z-index:9;position:absolute;top:50%;left:50%;background-color:#FF6600;-moz-border-radius: 15px;-webkit-border-radius: 15px;border-radius:15px;text-align:center;font-weight:bold;margin-left:-125px;margin-top:-30px;width:250px;cursor:pointer;height:60px;line-height:60px;display:none;" onclick="start(window._LAUNCH_GUID, window._LAUNCH_VER,'','','32', window._LAUNCH_GAME_BIN);">
+            <font color="#FFFFFF" size="6">开始畅玩</font>
+</div>
+<div id="mainFrameDiv" style="display: none;overflow:auto;width: 100%;height: 100%;position: absolute;z-index: 99;left: 0;top:0;">
+    <iframe id="mainFrame" name="mainFrame" style="width:100%;overflow: hidden;height: 800px;border: none;margin: 0"></iframe>
+</div>
+<div id="div_frontcover" style="display:none;">
+    <img id="s_img" src="website/hfplayer/img/share.png" style="display:none;">
+    <img src="website/hfplayer/img/qg_run_01.png" style="display:none;">
+    <img src="website/hfplayer/img/qg_run_02.png" style="display:none;">
+</div>
+<div id="sso_login_modal" class="modal hide fade in" aria-hidden="false" style="display:none; position:absolute; height:100%; width:100%; z-index:11;">
+  <iframe id="js-cross-login-iframe" class="iframepage_h" name="iframepage" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" data-src="" src="" style="height:100%; width:100%;">
+  </iframe>
+</div>
+<iframe id="sso_cross_check_login_modal" style="display:none;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" width="2" height="2" src="">
+</iframe>
+<div style="display:table; width: 100%;height:100%;text-align: center">
+    <div id="main_div" style="display: table-cell; vertical-align: middle;">
+        <canvas id="main_canvas" width="960" height="540" style="position: absolute;left:0;right:0;top:0;bottom: 0;margin: auto;"></canvas>
+        <video id="videos" class="video-js" preload="auto" style="display: none; width: 1px;height: 1px"></video>
+        <div id="videomask" style="position:absolute;left:0;right:0;top:0;bottom: 0;  background-color: #000000; display:none; width: 100%;height:100%;text-align: center">
+            <div id="videoText" name="text" style="position:absolute;z-index:999999;text-align:left;vertical-align:middle;display:table-cell;"></div>
+            <img id="videomaskBG" name="loadImg" style="position:absolute;left:0;right:0;top:0;bottom: 0;z-index:999;" src="website/hfplayer/img/videoLoad01.png">
+            <img id="loadingVideo" style="position:absolute;bottom:0;right:0;" src="">
+        </div>
+    </div>
+</div>
+<img id="loadingz" style="position:absolute;margin: auto;top:0;left:0;bottom:0;right:0;display:none;z-index:25;-moz-animation:loadingR .5s linear 2s infinite normal;-webkit-animation:loadingR .5s linear 2s infinite normal;-o-animation:loadingR .5s linear 2s infinite normal;animation:loadingR .5s linear 2s infinite normal;" src="website/hfplayer/img/cgMenu1/loading.png">
+<div class="recharge_box pop_up_box" id="pop_up">
+    <div class="outer">
+        <div class="inner">
+            <div class="recharge">
+                <img src="website/hfplayer/img/menu_close2.png" class="menu_close">
+                <h3>充值</h3>
+                <h4 class="explain_h" id="ownhave_chb">您当前拥有彩虹币数：0</h4>
+                <div class="import_box">
+                    <form class="formPay" action="" method="post" target="_blank">
+                        <input type="hidden" class="real_pay_num" name="num" value="1000">
+                        <input class="clear_default" id="pay_num" type="text" value="10" onkeyup="this.value=this.value.replace(/\Dg,'');" onblur="$('.real_pay_num').val(this.value*100);this.value==0?$('.real_pay_num').val(1000):this.value;" onafterpaste="this.value=this.value.replace(/\Dg,'')">
+                        <button class="immediately" type="submit">立刻购买</button>
+                    </form>
+                </div>
+                <h4 class="explain_h" id="ownhave_xh" style="margin-top:2%;">您当前拥有鲜花数：0</h4>
+                <div class="import_box">
+                    <form action="" method="POST" id="pay_flower" data-chb="0">
+                        <input class="clear_default count num" name="money" type="text" placeholder="1" value="1" onkeyup="this.value=this.value.replace(/\Dg,'')" onafterpaste="this.value=this.value.replace(/\Dg,'')">
+                        <button type="submit" class="immediately">立刻购买</button>
+                    </form>
+                    <a href="">>>查看详情</a>
+                </div>
+                <p class="recharge_explain" style="margin-top:4%;">1RMB可以充值橙光的1彩虹币哦~充值后可以兑换鲜花并给自己喜欢的作品赠送鲜花。</p>
+                <p class="recharge_explain" style=" margin-top: 2%;">您可以用鲜花开启作品中的付费章节，并鼓励作者更新作品。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="recharge_spbox pop_up_box" id="pop_up">
+    <div class="outer">
+        <div class="inner">
+            <div class="recharge">
+                <img src="website/hfplayer/img/menu_close2.png" class="menu_close">
+                <h3>充值</h3>
+                <h4 class="explain_h" id="ownhave_chb">您当前拥有彩虹币数：0</h4>
+                <div class="import_box">
+                    <form class="" action="" method="post" target="_blank">
+                        <input type="hidden" class="real_pay_num" name="num" value="1000">
+                        <input class="clear_default" id="pay_num" type="text" value="10" onkeyup="this.value=this.value.replace(/\Dg,'');" onblur="$('.real_pay_num').val(this.value*100);this.value==0?$('.real_pay_num').val(1000):this.value;" onafterpaste="this.value=this.value.replace(/\Dg,'')">
+                        <button class="immediately" type="submit">立刻购买</button>
+                    </form>
+                </div>
+                <h4 class="explain_h" id="ownhave_xh" style="margin-top:2%;">您当前拥有鲜花数：0</h4>
+                <div class="import_box">
+                    <form action="" method="POST" id="pay_flower" data-chb="0">
+                        <input class="clear_default count num" name="money" type="text" placeholder="1" value="1" onkeyup="this.value=this.value.replace(/\Dg,'')" onafterpaste="this.value=this.value.replace(/\Dg,'')">
+                        <button type="submit" class="immediately">立刻购买</button>
+                    </form>
+                    <a href="">>>查看详情</a>
+                </div>
+                <p class="recharge_explain" style="margin-top:4%;">1RMB可以充值橙光的1彩虹币哦~充值后可以兑换鲜花并给自己喜欢的作品赠送鲜花。</p>
+                <p class="recharge_explain" style=" margin-top: 2%;">您可以用鲜花开启作品中的付费章节，并鼓励作者更新作品。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="send_flowers_box pop_up_box">
+    <div class="outer">
+        <div class="inner">
+            <div class="send_flowers_sp">
+                <img src="website/hfplayer/img/menu_close2.png" class="menu_close">
+                <h3>送花</h3>
+                <p class="explain_h" id="gameTitle">为本游戏送花</p>
+                <p class="explain_c" id="gameHaveFlower">该作品拥有<span class="flower-number"></span>朵鲜花，每次送出鲜花打赏本作品，可以帮助作者提升作品曝光率哦。</p>
+                <div class="import_num explain_h">送作者
+                    <input class="clear_default" id="flower_num" type="text" onkeyup="this.value=this.value.replace(/\Dg,'')" onafterpaste="this.value=this.value.replace(/\Dg,'')" value="1" style="padding-left:.3rem;">朵鲜花，鼓励作者</div>
+                <p class="explain_c" id="isSendFlower">你当前可送<span id="flower-number"></span> 朵，每朵会为你和作者 +30 积分注意：如果您剩余的鲜花数不足的话会扣除您的彩虹币哦。</p>
+                <button id="sendFlower">送花</button>
+                <button id="buyFlower"><img src="website/hfplayer/img/flower_icon.png">点此购买</button>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tools_popup" id="tools_id">
+    <iframe id="hScreen" frameborder="0" class="tools_i" width="100%" height="100%" src=""></iframe>
+    <iframe id="vScreen" style="display: none" frameborder="0" class="tools_i" width="100%" height="100%" src=""></iframe>
+</div>
+<style>
+    .btn{
+        width: 20px;
+        height: 20px;
+        background: green;
+        position: absolute;
+        top: 0;
+        left:0;
+        z-index: 99;
+    }
+    .vote_box{
+        width: 100%;
+        height: 100%;
+        overflow:auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        font-family: '微软雅黑';
+        background: #fff;
+    }
+    .vote_box > .head{
+        width: 100%;
+        text-align: center;
+        background: #f0f0f0;
+        color: #5c5c5c;
+        font-size: 1.8rem;
+        padding:1.4% 0;
+    }
+    .vote_box > .head > .return{
+        display: inline-block;
+        height: 2rem;
+        position: absolute;
+        left: .5rem;
+        color: #ffac28;
+    }
+    .vote_box > .head > .return > img{
+        max-width:1.2rem;
+        vertical-align: middle;
+        margin-top: -.4rem;
+    }
+    .vote_box > .words_box{
+        width: 92%;
+        background: #44b679;
+        overflow: hidden;
+        padding: 0 4%;
+    }
+    .vote_box > .words_box > h3{
+        font-family: '微软雅黑';
+        font-size: 1.6rem;
+        text-align: center;
+        color: #fff;
+        font-weight: normal;
+        margin-top: .7rem;
+        padding: 1% 0;
+    }
+    .mg0{
+        margin:0;
+    }
+    .vote_box > .words_box > .words{
+        width: 100%;
+        overflow: hidden;
+    }
+    .vote_box > .words_box > .words > .head_portrait{
+        float: left;
+    }
+    .vote_box > .words_box > .words > .head_portrait > img{
+        width: 4rem;
+        border-radius:50%;
+    }
+    .vote_box > .words_box > .words > .head_portrait > p{
+        color: #fff;
+        font-family: '微软雅黑';
+        font-size: 1.2rem;
+    }
+    .vote_box > .words_box > .words > span {
+        width: 83%;
+        color: #434343;
+        font-family: '微软雅黑';
+        background: #efefef;
+        float: left;
+        padding: .9rem .8rem;
+        line-height: 1.5rem;
+        border-radius: .4rem;
+        margin:.3rem 0 2rem 1.3rem;
+    }
+    .vote_box > .words_box > .words > span:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-left:10px solid transparent;
+        border-right:10px solid red ;
+        border-bottom:10px solid transparent ;
+        border-top:10px solid transparent ;
+    }
+    @media all and (orientation : landscape) and (max-width: 530px){
+        .vote_box > .words_box > .words > span {
+            width: 80%;
+        }
+        .vote_box > .words_box > .words > .head_portrait {
+            width: 11%;
+        }
+    }
+    .vote_box > .point_out{
+        height: 2rem;
+        padding: 1.25rem 4%;
+        color: #5c5c5c;
+        font-size: 1.2rem;
+    }
+    .vote_box > .point_out > .purchase_flower{
+        float: left;
+    }
+    .vote_box > .point_out > .purchase_integra{
+        float: right;
+    }
+    .vote_box > .point_out > .purchase_flower > i,.vote_box > .point_out > .purchase_integra > i{
+        font-style: normal;
+    }
+    .vote_box > .point_out > .purchase_flower > button,.vote_box > .point_out > .purchase_integra > button{
+        width: 5.3rem;
+        height: 2.1rem;
+        color: #fff;
+        background: #ffac28;
+        border-radius: .3rem;
+        border: 0;
+        margin-left: .8rem;
+    }
+    .vote_box > .voets, .votes_list{
+        overflow: hidden;
+        padding: 0 4%;
+    }
+    .vote_box > .voets >.vote_box >  .votes_title{
+        overflow: hidden;
+    }
+    .vote_box > .voets > .votes_title > div{
+        width: 48%;
+        text-align: center;
+        font-size: 1.4rem;
+        color: #5c5c5c;
+        float: left;
+        margin-left: 4%;
+    }
+    .vote_box > .voets > .votes_title > div:first-child{
+        margin-left: 0;
+    }
+</style>
+<audio id="bgm"></audio>
+<audio id="bgs"></audio>
+<audio id="se"></audio>
+<audio id="voice"></audio>
+<script>
+    getmacID();
+</script>
+</body>
+<script>
+    if(!user){ user = {uid:0}; }
+</script>
+</html>

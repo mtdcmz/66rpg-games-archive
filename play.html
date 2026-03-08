@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MTDCMZ's 66RPG Games Archive</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <style>
+        /* 复用首页橙色风格，并添加播放器布局 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #faf8f5;
+            color: #332211;
+            line-height: 1.5;
+            user-select: none;
+            -webkit-user-select: none;
+            overflow-x: hidden;
+        }
+        img { -webkit-user-drag: none; }
+        :root {
+            --primary: #ff6600;
+            --primary-dark: #e05e2e;
+            --primary-light: #ffac28;
+            --shadow: 0 8px 20px rgba(255, 102, 0, 0.2);
+        }
+
+        /* 导航栏 (与首页一致) */
+        .navbar {
+            background: linear-gradient(145deg, var(--primary), #ff8c42);
+            color: white;
+            padding: 0.8rem 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            border-radius: 50%;
+            background: url('data/images/icon.jpg') center/cover;
+            border: 2px solid white;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            background: rgba(255,255,255,0.1);
+            transition: 0.2s;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            background: var(--primary-dark);
+        }
+        .nav-link img {
+            width: 20px; height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 32px;
+            max-width: 550px;
+            width: 90%;
+            padding: 2rem;
+            box-shadow: 0 25px 40px var(--primary);
+            border: 2px solid var(--primary-light);
+        }
+
+        .modal-title {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .modal-text p {
+            margin: 1rem 0;
+            color: #4a3c2c;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .modal-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 0 var(--primary-dark);
+        }
+
+        .modal-btn:disabled {
+            background: #ccc;
+            box-shadow: 0 4px 0 #999;
+            cursor: not-allowed;
+        }
+
+        .modal-btn:not(:disabled):hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 游戏标题区 */
+        .game-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .game-title {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
+
+        /* iframe 播放器容器 — 16:9 自适应 */
+        .player-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #1a130a;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--primary-light);
+            margin-bottom: 2rem;
+        }
+        #game-iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: black;
+        }
+
+        /* 控制按钮组 */
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0 2rem;
+        }
+        .control-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 游戏描述卡片 */
+        .game-description {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+            border: 1px solid var(--primary-light);
+        }
+        .desc-title {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .desc-content {
+            color: #4a3c2c;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* 评论区 (giscus保留) */
+        .comments-section {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+        .comments-title {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* 加载/错误占位 */
+        .loader { display: flex; justify-content: center; align-items: center; height: 200px; }
+        .spinner { border: 5px solid #ffe0b2; border-top: 5px solid var(--primary); border-radius: 50%; width: 50px; height: 50px; animation: spin 0.8s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+        .error-message { background: #ffede1; color: #b33c00; padding: 2rem; border-radius: 24px; text-align: center; }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .navbar { padding: 0.6rem 1rem; }
+            .nav-container { flex-direction: column; gap: 0.5rem; }
+            .logo { font-size: 1.2rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .page-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .games-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>MTDCMZ's 66RPG Games Archive</span>
+            </div>
+            <div class="nav-links">
+                <a href="index" class="nav-link">主页</a>
+                <a href="https://space.bilibili.com/426046208" target="_blank" class="nav-link"><img src="https://ts2.cn.mm.bing.net/th?id=ODLS.e42d2c4d-ad65-4c7a-b0fd-817a1c3bed01">Bilibili</a>
+                <a href="https://github.com/mtdcmz" target="_blank" class="nav-link"><img src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" class="github-icon">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="game-content">
+            <div class="loader"><div class="spinner"></div></div>
+        </div>
+    </div>
+
+    <!-- 免责模态框 (与首页共用逻辑) -->
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">免责声明</h2>
+            <div class="modal-text">
+                <p>本网站主要收集橙光游戏历史版本，仅供个人学习、研究与怀旧。</p>
+                <p>所有资源均来源于网络，版权归原作者所有。若侵犯权益，请通过GitHub联系，我们会及时处理。</p>
+                <p>继续使用即表示您理解并同意以上声明。</p>
+            </div>
+            <div class="modal-footer">
+                <button id="agree-btn" class="modal-btn" disabled>同意 (10)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+
+        let currentGame = null;
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameId = urlParams.get('id');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hasAgreed = localStorage.getItem('disclaimerAgreed_66rpg');
+            if (!hasAgreed) showDisclaimer();
+            else if (!gameId) showError('缺少游戏ID参数');
+            else loadGameDetails(gameId);
+        });
+
+        function loadGameDetails(id) {
+            fetch('data/details.json')
+                .then(r => r.json())
+                .then(data => {
+                    const game = data.find(g => g.id === id);
+                    if (!game) throw new Error('游戏不存在');
+                    currentGame = game;
+                    renderPlayPage(game);
+                })
+                .catch(err => showError(err.message));
+        }
+
+        function renderPlayPage(game) {
+            document.title = `${game.name} - MTDCMZ's 66RPG Games Archive`;
+            const container = document.getElementById('game-content');
+            const iframeSrc = `/engine/index?guid=${game.guid}&ver=${game.ver}`;
+
+            container.innerHTML = `
+                <div class="game-header">
+                    <h1 class="game-title">${game.name}</h1>
+                </div>
+                <div class="player-wrapper" id="player-wrapper">
+                    <iframe id="game-iframe" src="${iframeSrc}" allowfullscreen allow="autoplay; fullscreen"></iframe>
+                </div>
+                <div class="game-controls">
+                    <button class="control-btn" id="reloadGame">重新开始</button>
+                    <button class="control-btn" id="fullscreenBtn">全屏</button>
+                </div>
+                <div class="game-description">
+                    <h2 class="desc-title">游戏简介</h2>
+                    <div class="desc-content">${game.desc}</div>
+                </div>
+                <div class="comments-section">
+                    <h2 class="comments-title">评论区</h2>
+                    <div id="giscus-comments"></div>
+                </div>
+            `;
+
+            setupControls(iframeSrc);
+            loadComments(game.id);
+        }
+
+        function setupControls(iframeSrc) {
+            const iframe = document.getElementById('game-iframe');
+            const reloadBtn = document.getElementById('reloadGame');
+            const fullBtn = document.getElementById('fullscreenBtn');
+            const wrapper = document.getElementById('player-wrapper');
+
+            reloadBtn.addEventListener('click', () => {
+                // 重玩：加时间戳防止缓存
+                iframe.src = iframeSrc + '&_t=' + Date.now();
+            });
+
+            fullBtn.addEventListener('click', () => {
+                if (wrapper.requestFullscreen) wrapper.requestFullscreen();
+                else if (wrapper.webkitRequestFullscreen) wrapper.webkitRequestFullscreen();
+                else if (wrapper.msRequestFullscreen) wrapper.msRequestFullscreen();
+            });
+        }
+
+        function loadComments(gameId) {
+            const container = document.getElementById('giscus-comments');
+            if (!container) return;
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'mtdcmz/66rpg-archive');
+            script.setAttribute('data-repo-id', 'R_kgDORhXi0A');
+            script.setAttribute('data-category', 'Announcements');
+            script.setAttribute('data-category-id', 'DIC_kwDORhXi0M4C374d');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', gameId);
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'preferred_color_scheme');
+            script.setAttribute('data-lang', 'zh-CN');
+            script.crossOrigin = 'anonymous';
+            script.async = true;
+            container.appendChild(script);
+        }
+
+        function showError(msg) {
+            document.getElementById('game-content').innerHTML = `
+                <div class="error-message">
+                    <h3>${msg}</h3>
+                    <button class="control-btn" onclick="window.location.href='index'">返回主页</button>
+                </div>
+            `;
+        }
+
+        function showDisclaimer() {
+            const modal = document.getElementById('disclaimer-modal');
+            const btn = document.getElementById('agree-btn');
+            modal.style.display = 'flex';
+            let sec = 10;
+            btn.textContent = `同意 (${sec})`;
+            const timer = setInterval(() => {
+                sec--;
+                btn.textContent = `同意 (${sec})`;
+                if (sec <= 0) {
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.textContent = '同意进入';
+                }
+            }, 1000);
+            btn.addEventListener('click', function handler() {
+                localStorage.setItem('disclaimerAgreed_66rpg', 'true');
+                modal.style.display = 'none';
+                if (!gameId) showError('缺少游戏ID');
+                else loadGameDetails(gameId);
+            }, { once: true });
+        }
+    </script>
+</body>
+</html>
