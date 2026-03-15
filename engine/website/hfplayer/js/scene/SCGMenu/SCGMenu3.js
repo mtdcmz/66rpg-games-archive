@@ -1116,8 +1116,7 @@ function SCGMenu3(callBack){
                     }
                     var a = confirm("确定要退出作品吗？");
                     if(a){
-                        var Exiturl = "http://m.66rpg.com/game/mobileDown/"+gIndex;
-                        window.location.href= Exiturl;
+                    window.history.back();
                     }
                     break;
                 case types[4]://收藏

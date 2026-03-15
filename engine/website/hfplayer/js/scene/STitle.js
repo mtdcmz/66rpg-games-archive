@@ -134,8 +134,7 @@ function STitle(is_Run){
 			if(mark == "isFlash"){
 				return;
 			}
-			var Exiturl = "http://m.66rpg.com/game/mobileDown/"+gIndex;
-			window.location.href= Exiturl;
+			window.history.back();
 		}
 	}
 

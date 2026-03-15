@@ -183,36 +183,14 @@ function OperationFrame(){
     * 限免期间并且送的花少于鲜花锁
     * */
     this.getIsFree = function () {
-        if(serverAjax && serverAjax.userFlowerInfo){
-            var tanhua = parseInt(serverAjax.userFlowerInfo.tanhua_flower_num);
-            var sendFlower = parseInt(serverAjax.userFlowerInfo.fresh_flower_num)+parseInt(serverAjax.userFlowerInfo.wild_flower_num/100);
-        }else{
-            var tanhua = 0;
-            var sendFlower = 0;
-        }
-
-        if(tanhua > 0 && sendFlower < parseInt(flower_unlock)){
-            return true;
-        }
         return false;
     }
     /*
      * 不限免期间并且送的花大于鲜花锁
      * */
     this.getNotIsFree = function () {
-        if(serverAjax && serverAjax.userFlowerInfo) {
-            var tanhua = parseInt(serverAjax.userFlowerInfo.tanhua_flower_num);
-            var sendFlower = parseInt(serverAjax.userFlowerInfo.fresh_flower_num)+parseInt(serverAjax.userFlowerInfo.wild_flower_num/100);
-        }else{
-            var tanhua = 0;
-            var sendFlower = 0;
-        }
-        if(tanhua == 0 && sendFlower >= parseInt(flower_unlock)){
-            return true;
-        }else{
             return false;
         }
-    }
     /// <summary>
     ///  序列化帧信息   云存档
     /// </summary>
