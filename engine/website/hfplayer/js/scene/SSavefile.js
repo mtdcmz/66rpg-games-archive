@@ -857,6 +857,7 @@ function SSavefile(fTitle,isSave){
 	}
 
 	this.cmdSave = function(index,bIsCloud){
+		allOpen = true;
 		if(!allOpen){
 			//是否是ios策略
 			if(fristSave){
