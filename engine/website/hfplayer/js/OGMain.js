@@ -364,6 +364,9 @@ function start(gid,version,m,s,q,gamebinpath,screen_code){
     gIsApple = isIphone();
 
     var left = document.getElementById("div_button");
+	
+	flowerHua = 99999;
+    serverAjax.userFlowerInfo.num = 99999;
 }
 
 function Tup()

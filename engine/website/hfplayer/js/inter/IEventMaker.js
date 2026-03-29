@@ -263,6 +263,7 @@ function IEventMaker(){
                 }
                 
             }else if(type == 3){
+				cmpRet = true;
                 var self=this;
                 this.isFun= function () {
                     if(otherVar == 0){
